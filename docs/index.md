@@ -3,9 +3,10 @@
 layout: home
 
 hero:
-  name: "AdonisJS + React Starter Kit"
-  # text: "Everything you need to develop and deploy your full-stack web app"
-  tagline: Everything you need to develop and deploy your AI-powered SaaS. Authentication, database migrations, tRPC, edge deployment, and cutting-edge React patterns all configured with industry best practices.
+  name: "AdonisJS + React"
+  text: "A Fullstack Starter Kit"
+  tagline: Everything you need to ship your AI-powered SaaS. 
+  # Authentication, database migrations, tRPC, edge deployment, and cutting-edge React patterns all configured with industry best practices.
   actions:
     - theme: brand
       text: Getting Started
@@ -26,14 +27,14 @@ features:
     details: React 19, ShadCN UI components with Tailwind CSS v4
   - icon: 🔐
     title: Complete Authentication
-    details: Pre-configured Better Auth with social providers, session management, and secure user flows
+    details: Driver-based authentication layer with support for sessions, API tokens, basic auth, and much more.
   - icon: 🏢
     title: Multi-Tenant Database
     details: Lucid ORM, pre-built multi-tenant schema, migrations, and type-safe queries
   - icon: 🏢
-    title: tRPC
+    title: tRPC + VineJS
     details: Fully configured and End-to-end typesafe APIs with excellent developer experience
   - icon: ⚡
     title: Ship Faster
-    details: Bun runtime for instant builds, hot reload, unified tooling, and comprehensive testing setup
+    details: Vite runtime for instant builds, hot reload, unified tooling, and comprehensive testing setup
 ---

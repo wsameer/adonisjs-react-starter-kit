@@ -23,6 +23,11 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/wsameer/react-adonijs-starter-kit' }
-    ]
+    ],
+
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2025-present Sameer Waskar'
+    }
   }
 })
