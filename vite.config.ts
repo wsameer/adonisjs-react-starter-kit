@@ -10,7 +10,7 @@ export default defineConfig({
     inertia({ ssr: { enabled: false } }),
     react(),
     adonisjs({ entrypoints: ['resources/js/app/app.tsx'], reload: ['resources/views/**/*.edge'] }),
-    tailwindcss()
+    tailwindcss(),
   ],
 
   /**

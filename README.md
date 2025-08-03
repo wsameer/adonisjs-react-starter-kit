@@ -11,6 +11,7 @@ Designed for developers who value both speed and quality, this template provides
 ## Technology Stack
 
 **Frontend & UI**
+
 - [React 19](https://react.dev/) - Latest React with concurrent features
 - [TypeScript](https://www.typescriptlang.org/) - Static type checking
 - [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first CSS framework

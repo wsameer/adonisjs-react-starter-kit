@@ -14,4 +14,3 @@ router.on('/').renderInertia('home')
 
 // TODO - tRPC API routes
 // router.any('/trpc/*', [TrpcController, 'handle']).as('trpc')
-

@@ -1,12 +1,9 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class'],
-  content: [
-    './resources/js/**/*.{ts,tsx,js,jsx}',
-    './resources/views/**/*.edge',
-  ],
+  content: ['./resources/js/**/*.{ts,tsx,js,jsx}', './resources/views/**/*.edge'],
   theme: {
     extend: {
       borderRadius: {
@@ -15,7 +12,7 @@ export default {
         sm: 'calc(var(--radius) - 4px)',
       },
       spacing: {
-        11.5: '2.85rem', // Positive spacing
+        '11.5': '2.85rem', // Positive spacing
         '-11.5': '-2.85rem', // Negative spacing
       },
       colors: {
@@ -60,14 +57,14 @@ export default {
           5: 'hsl(var(--chart-5))',
         },
         sidebar: {
-          DEFAULT: 'hsl(var(--sidebar-background))',
-          foreground: 'hsl(var(--sidebar-foreground))',
-          primary: 'hsl(var(--sidebar-primary))',
+          'DEFAULT': 'hsl(var(--sidebar-background))',
+          'foreground': 'hsl(var(--sidebar-foreground))',
+          'primary': 'hsl(var(--sidebar-primary))',
           'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-          accent: 'hsl(var(--sidebar-accent))',
+          'accent': 'hsl(var(--sidebar-accent))',
           'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-          border: 'hsl(var(--sidebar-border))',
-          ring: 'hsl(var(--sidebar-ring))',
+          'border': 'hsl(var(--sidebar-border))',
+          'ring': 'hsl(var(--sidebar-ring))',
         },
       },
       fontFamily: {
@@ -76,4 +73,4 @@ export default {
     },
   },
   plugins: [require('tailwindcss-animate')],
-};
+}
