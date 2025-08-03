@@ -1,9 +1,9 @@
 {
-  "name": "my-adonisjs-app",
-  "version": "0.0.0",
+  "name": "adonisjs-react-starter-kit",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "start": "node bin/server.js",
     "build": "node ace build",

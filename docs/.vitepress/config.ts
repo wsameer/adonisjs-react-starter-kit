@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "AdonisJS + React Starter Kit",
   description: "Production-ready monorepo for building fast web apps",
-  base: '/docs/',
+  base: '/adonisjs-react-starter-kit/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
