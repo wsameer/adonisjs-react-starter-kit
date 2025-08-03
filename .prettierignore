@@ -4,3 +4,7 @@ dist
 coverage
 node_modules
 pnpm-lock.yaml
+
+# VitePress
+docs
+docs

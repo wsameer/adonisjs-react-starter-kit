@@ -23,3 +23,7 @@ yarn-error.log
 
 # Platform specific
 .DS_Store
+
+# VitePress
+docs/.vitepress/dist
+docs/.vitepress/cache
