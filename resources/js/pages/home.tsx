@@ -35,7 +35,7 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-3xl lg:text-center">
               <h2 className="text-base/7 font-semibold text-indigo-600">
-                AdonisJS + React + Starter Kit
+                AdonisJS + React Starter Kit
               </h2>
               <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">
                 Everything you need to develop and deploy your full-stack web app
