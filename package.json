@@ -17,7 +17,11 @@
     "pre-commit": "lint-staged",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "lint:fix": "eslint . --fix",
+    "type-check": "tsc --noEmit",
+    "check-all": "pnpm lint && pnpm type-check && pnpm test",
+    "preview": "pnpm build && pnpm start"
   },
   "imports": {
     "#controllers/*": "./app/controllers/*.js",
@@ -52,6 +56,8 @@
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^4.7.0",
     "eslint": "^9.26.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
     "hot-hook": "^0.4.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",

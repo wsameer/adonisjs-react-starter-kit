@@ -1,25 +1,42 @@
-# http://editorconfig.org
+# EditorConfig is awesome: https://editorconfig.org/
+# top-most EditorConfig file
+root = true
 
+# All files
 [*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
 indent_style = space
 indent_size = 2
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
 
-[*.json]
+# TypeScript, JavaScript, TSX, JSX
+[*.{ts,tsx,js,jsx}]
+indent_size = 2
+
+# JSON files
+[*.{json,jsonc}]
+indent_size = 2
 insert_final_newline = unset
 
-[**.min.js]
-indent_style = unset
-insert_final_newline = unset
+# YAML files
+[*.{yml,yaml}]
+indent_size = 2
 
-[*.md]
-trim_trailing_whitespace = false
-
+# Docker Compose (common exception)
 [docker-compose.yml]
 indent_size = 4
 
-[*.{yml,yaml}]
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+
+# Edge template files
+[*.edge]
 indent_size = 2
+
+# Minified files (preserve as-is)
+[**.min.{js,css}]
+indent_style = unset
+insert_final_newline = unset

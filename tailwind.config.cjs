@@ -1,9 +1,12 @@
 import defaultTheme from 'tailwindcss/defaultTheme'
 
-/** @type {import('tailwindcss').Config} */
-export default {
+const config = {
   darkMode: ['class'],
-  content: ['./resources/js/**/*.{ts,tsx,js,jsx}', './resources/views/**/*.edge'],
+  content: [
+    './resources/js/**/*.{ts,tsx,js,jsx}',
+    './resources/views/**/*.edge',
+    './app/**/*.{ts,js}', // Include backend files that might use Tailwind classes
+  ],
   theme: {
     extend: {
       borderRadius: {
@@ -70,7 +73,32 @@ export default {
       fontFamily: {
         sans: ['Figtree', ...defaultTheme.fontFamily.sans],
       },
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-in-out',
+        'slide-in': 'slideIn 0.3s ease-out',
+        'bounce-in': 'bounceIn 0.6s ease-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideIn: {
+          '0%': { transform: 'translateY(-10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        bounceIn: {
+          '0%, 20%, 53%, 80%, 100%': { transform: 'scale(1)' },
+          '40%': { transform: 'scale(0.9)' },
+          '70%': { transform: 'scale(1.05)' },
+        },
+      },
+      screens: {
+        xs: '475px', // Additional small screen breakpoint
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],
 }
+
+export default config
