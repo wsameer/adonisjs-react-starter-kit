@@ -19,7 +19,6 @@ export default defineConfig({
    */
   resolve: {
     alias: {
-      // '~/': `${getDirname(import.meta.url)}/resources/js/`,
       '@': `${getDirname(import.meta.url)}/resources/js/`,
     },
   },

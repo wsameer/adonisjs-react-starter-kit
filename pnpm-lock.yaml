@@ -125,6 +125,9 @@ importers:
       vaul:
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@19.1.7(@types/react@19.1.9))(@types/react@19.1.9)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      zod:
+        specifier: ^4.0.14
+        version: 4.0.14
     devDependencies:
       '@adonisjs/assembler':
         specifier: ^7.8.2
@@ -4083,6 +4086,9 @@ packages:
   youch@4.1.0-beta.11:
     resolution: {integrity: sha512-sQi6PERyO/mT8w564ojOVeAlYTtVQmC2GaktQAf+IdI75/GKIggosBuvyVXvEV+FATAT6RbLdIjFoiIId4ozoQ==}
 
+  zod@4.0.14:
+    resolution: {integrity: sha512-nGFJTnJN6cM2v9kXL+SOBq3AtjQby3Mv5ySGFof5UGRHrRioSJ5iG680cYNjE/yWk671nROcpPj4hAS8nyLhSw==}
+
 snapshots:
 
   '@adobe/css-tools@4.4.3': {}
@@ -7709,3 +7715,5 @@ snapshots:
       '@speed-highlight/core': 1.2.7
       cookie: 1.0.2
       youch-core: 0.3.3
+
+  zod@4.0.14: {}

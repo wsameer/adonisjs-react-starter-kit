@@ -3,7 +3,10 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class'],
-  content: ['./resources/js/**/*.{ts,tsx,js,jsx}'],
+  content: [
+    './resources/js/**/*.{ts,tsx,js,jsx}',
+    './resources/views/**/*.edge',
+  ],
   theme: {
     extend: {
       borderRadius: {
