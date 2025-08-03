@@ -11,7 +11,8 @@
   ],
   "tailwindFunctions": ["clsx", "cn"],
   "tailwindStylesheet": "resources/css/app.css",
-  "tabWidth": 4,
+  "tabWidth": 2,
+  "useTabs": false,
   "overrides": [
     {
       "files": "**/*.yml",
