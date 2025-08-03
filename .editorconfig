@@ -15,8 +15,11 @@ insert_final_newline = unset
 indent_style = unset
 insert_final_newline = unset
 
-[MakeFile]
-indent_style = space
-
 [*.md]
 trim_trailing_whitespace = false
+
+[docker-compose.yml]
+indent_size = 4
+
+[*.{yml,yaml}]
+indent_size = 2
