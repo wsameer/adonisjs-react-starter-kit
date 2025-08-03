@@ -13,34 +13,5 @@
   "bracketSpacing": true,
   "arrowParens": "avoid",
   "endOfLine": "lf",
-  "bracketSameLine": false,
-  "overrides": [
-    {
-      "files": "**/*.{yml,yaml}",
-      "options": {
-        "tabWidth": 2,
-        "singleQuote": false
-      }
-    },
-    {
-      "files": "**/*.{json,jsonc}",
-      "options": {
-        "tabWidth": 2,
-        "trailingComma": "none"
-      }
-    },
-    {
-      "files": "**/*.md",
-      "options": {
-        "printWidth": 80,
-        "proseWrap": "always"
-      }
-    },
-    {
-      "files": "**/edge/**/*.edge",
-      "options": {
-        "parser": "html"
-      }
-    }
-  ]
+  "bracketSameLine": false
 }
