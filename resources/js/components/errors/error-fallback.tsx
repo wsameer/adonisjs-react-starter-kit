@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button } from '../ui/button';
 
 export const ErrorFallback = ({ error, resetErrorBoundary }: any) => {
