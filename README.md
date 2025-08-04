@@ -6,8 +6,6 @@ A modern, production-ready full-stack web application starter kit built with the
 
 Designed for developers who value both speed and quality, this template provides a complete foundation for full-stack applications. From solo projects to team collaborations, it scales with your ambitions while maintaining the developer experience you deserve.
 
-## Monorepo Architecture
-
 ## Technology Stack
 
 **Frontend & UI**
@@ -37,4 +35,4 @@ Designed for developers who value both speed and quality, this template provides
 
 - Node.js 18+
 - PostgreSQL 12+
-- pnpm 8+
+- pnpm 8+ (can be swapped with npm or yarn)

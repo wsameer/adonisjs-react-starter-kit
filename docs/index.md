@@ -4,13 +4,13 @@ layout: home
 
 hero:
   name: "AdonisJS + React"
-  text: "A Fullstack Starter Kit"
-  tagline: Everything you need to ship your AI-powered SaaS. 
-  # Authentication, database migrations, tRPC, edge deployment, and cutting-edge React patterns all configured with industry best practices.
+  # text: "A Fullstack Starter Kit"
+  tagline: A modern, full-stack TypeScript starter kit that combines the power of AdonisJS backend with React frontend, seamlessly connected through Inertia.js. 
+  # Everything you need to ship your AI-powered SaaS. Authentication, database migrations, tRPC, edge deployment, and cutting-edge React patterns all configured with industry best practices.
   actions:
     - theme: brand
-      text: Getting Started
-      link: /getting-started
+      text: Start building
+      link: /get-started/installation
     - theme: alt
       text: View on GitHub
       link: https://github.com/wsameer/react-adonijs-starter-kit
