@@ -1,9 +1,7 @@
 # Introduction 
-Our React starter kit provides a robust, modern starting point for building Laravel applications with a React frontend using  [Inertia](https://inertiajs.com/).
+This starter kit provides a robust, modern starting point for building Full-stack web applications with a React frontend using [Inertia](https://inertiajs.com/).
 
-Inertia allows you to build modern, single-page React applications using classic server-side routing and controllers. This lets you enjoy the frontend power of React combined with the incredible backend productivity of AdonisJS and lightning-fast Vite compilation.
-
-The React starter kit utilizes React 19, TypeScript, Tailwind, and the  [shadcn/ui](https://ui.shadcn.com/)  component library.
+This starter kit utilizes NodeJS, React 19, TypeScript, Tailwind, and the [shadcn/ui](https://ui.shadcn.com/) component library to give you everything you need for shipping your next AI SaaS product.
 
 ## Why This Starter Kit?
 Building modern web applications requires making countless decisions about technology stack, project structure, and tooling setup. This starter kit eliminates the initial complexity by providing a battle-tested foundation that follows industry best practices.

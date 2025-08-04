@@ -5,7 +5,9 @@
 - **Frontend**: React 18 with TypeScript  
 - **Database**: PostgreSQL/MySQL/SQLite support
 - **Styling**: Tailwind CSS + Shadcn/ui
-- **Type Safety**: tRPC for end-to-end types
+- **Type Safety**: Tuyau - end-to-end type-safe client
+- **ORM**: Lucid ORM
+- **Schema**: VineJS
 
 ## Pre-configured Features
 - User authentication & authorization
@@ -13,7 +15,8 @@
 - API routes with validation
 - Responsive UI components
 - Development tooling (ESLint, Prettier)
-- Testing setup (Japa, Jest)
+- Testing setup
+- Internationalization with I18n
 
 ## Development Tools
 - Hot module replacement

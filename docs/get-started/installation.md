@@ -101,7 +101,7 @@ ace db:seed
 
 Run the development server to see your application in action:
 ```bash
-pnpm run dev
+pnpm dev
 ```
 
 ## Next Steps
