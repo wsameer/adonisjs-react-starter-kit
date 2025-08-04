@@ -1,23 +1,47 @@
 import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
+
 export default defineConfig({
   title: "AdonisJS + React Starter Kit",
   description: "Production-ready monorepo for building fast web apps",
+  
+
   base: '/adonisjs-react-starter-kit/',
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Docs', link: '/getting-started' },
+      { text: 'Docs', link: '/intro' },
     ],
 
     sidebar: [
       {
-        text: 'Documentation',
+        text: 'Introduction',
+         items: [
+          { text: 'Overview', link: '/intro' },
+          { text: 'What\'s Included', link: '/whats-included' },
+        ]
+      },
+      {
+        text: 'Getting Started',
         items: [
-          { text: 'Getting Started', link: '/getting-started' },
-          { text: 'Deployment', link: '/deployment' }
+          { text: 'Installation', link: '/get-started/installation' },
+          { text: 'Directory Structure', link: '/get-started/directory-structure' },
+          { text: 'Development Workflow', link: '/get-started/development-workflow' }
+        ]
+      },
+      // {
+      //   text: 'Guide',
+      //   items: [
+      //     { text: 'Configuration', link: '/guide/configuration' },
+      //     { text: 'Database Setup', link: '/guide/database' },
+      //     { text: 'Authentication', link: '/guide/authentication' }
+      //   ]
+      // },
+      {
+        text: 'Deployment',
+        items: [
+          { text: 'Overview', link: '/deployment' }
         ]
       }
     ],
