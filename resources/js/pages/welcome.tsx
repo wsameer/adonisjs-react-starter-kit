@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Head, Link } from '@inertiajs/react'
 
-
 export default function Welcome() {
   return (
     <>
@@ -18,7 +17,7 @@ export default function Welcome() {
             <Button variant="ghost" asChild>
               <Link href="#">Log in</Link>
             </Button>
-            <Button variant="outline" asChild>
+            <Button variant="default" asChild>
               <Link href="#">Register</Link>
             </Button>
           </nav>
