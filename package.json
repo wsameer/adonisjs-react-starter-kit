@@ -19,7 +19,6 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "lint:fix": "eslint . --fix",
-    "type-check": "tsc --noEmit",
     "check-all": "pnpm lint && pnpm type-check && pnpm test",
     "preview": "pnpm build && pnpm start"
   },

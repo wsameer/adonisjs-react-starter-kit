@@ -9,7 +9,10 @@ export default defineConfig({
   plugins: [
     inertia({ ssr: { enabled: false } }),
     react(),
-    adonisjs({ entrypoints: ['resources/js/app/app.tsx'], reload: ['resources/views/**/*.edge'] }),
+    adonisjs({
+      entrypoints: ['resources/js/app/app.tsx', 'resources/css/app.css'],
+      reload: ['resources/views/**/*.edge'],
+    }),
     tailwindcss(),
   ],
 
@@ -22,4 +25,4 @@ export default defineConfig({
       '@': `${getDirname(import.meta.url)}/resources/js/`,
     },
   },
-})
+});
