@@ -1,62 +1,67 @@
 import { Button } from '@/components/ui/button';
-import { Head } from '@inertiajs/react'
+import { Head, Link } from '@inertiajs/react'
 
 
 export default function Welcome() {
   return (
     <>
-      <Head title="Welcome" />
+      <Head title="Welcome">
+        <link rel="preconnect" href="https://fonts.bunny.net" />
+        <link
+          href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600"
+          rel="stylesheet"
+        />
+      </Head>
+      <div className="flex min-h-screen flex-col items-center bg-[#FDFDFC] p-6 text-[#1b1b18] lg:justify-center lg:p-8">
+        <header className="mb-6 w-full max-w-[335px] text-sm not-has-[nav]:hidden lg:max-w-4xl">
+          <nav className="flex items-center justify-end gap-4">
+            <Button variant="ghost" asChild>
+              <Link href="#">Log in</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="#">Register</Link>
+            </Button>
+          </nav>
+        </header>
 
-      <nav className="bg-gray-100">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="flex justify-between">
-            <div className="flex space-x-4">
-              <div>
+        <div className="flex w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0">
+          <main className="mt-28 flex w-full max-w-[335px] flex-col-reverse lg:mt-4 lg:max-w-4xl lg:flex-row">
+            <div className="flex-1 rounded-lg bg-white p-0 pb-12 text-[13px] leading-[20px] lg:p-20">
+              <h2 className="text-base/7 font-semibold text-indigo-600">
+                AdonisJS + React Starter Kit
+              </h2>
+              <p className="mt-2 text-4xl tracking-tight text-pretty sm:text-5xl lg:text-balance">
+                Everything you need to develop and deploy your full-stack web app
+              </p>
+              <div className="flex-column mt-6 flex gap-1 text-sm leading-normal">
+                <span>Read the </span>
                 <a
-                  href="#"
-                  className="flex items-center px-2 py-5 text-gray-700 hover:text-gray-900"
+                  href="https://wsameer.github.io/adonisjs-react-starter-kit/intro.html"
+                  target="_blank"
+                  className="inline-flex items-center space-x-1 font-medium text-[#f53003] text-indigo-600 underline underline-offset-4"
                 >
-                  <span className="font-bold">AdnoisJS + React Starter Kit</span>
+                  documentation
+                  <svg
+                    width={10}
+                    height={11}
+                    viewBox="0 0 10 11"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-2.5 w-2.5"
+                  >
+                    <path
+                      d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001"
+                      stroke="currentColor"
+                      strokeLinecap="square"
+                    />
+                  </svg>
                 </a>
               </div>
             </div>
-
-            <div className="hidden items-center space-x-2 md:flex">
-              <Button variant="outline">Login</Button>
-              <Button variant="default">Signup</Button>
-            </div>
-
-            <div className="flex items-center md:hidden">
-              <Button className="mobile-menu-button">Login</Button>
-            </div>
-          </div>
+          </main>
         </div>
-      </nav>
-
-      <main className="container mx-auto px-4 py-12">
-        <div className="bg-white py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl lg:text-center">
-              <h2 className="text-base/7 font-semibold text-indigo-600 sm:text-base/7 md:text-2xl">
-                AdonisJS + React Starter Kit
-              </h2>
-              <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">
-                Everything you need to develop and deploy your full-stack web app
-              </p>
-              <p className="mt-6 text-lg/8 text-gray-700">
-                Skip months of setup and ship your AI-powered SaaS fast. Authentication, database
-                migrations, tRPC, fully typesafe APIs, edge deployment, and cutting-edge React
-                patterns all configured with industry best practices.
-              </p>
-            </div>
-            <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-              <div>
-                <Button>Read docs</Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+        <div className="hidden h-14.5 lg:block"></div>
+      </div>
     </>
   );
 }

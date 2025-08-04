@@ -10,7 +10,7 @@
 import router from '@adonisjs/core/services/router'
 
 // Web routes
-router.on('/').renderInertia('welcome')
+router.on('/').renderInertia('welcome').as('home')
 
 // TODO - tRPC API routes
 // router.any('/trpc/*', [TrpcController, 'handle']).as('trpc')
