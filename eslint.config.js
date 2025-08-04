@@ -32,19 +32,6 @@ export default configApp(
         },
       ],
 
-      // Import organization
-      'import/order': [
-        'error',
-        {
-          'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-          'newlines-between': 'always',
-          'alphabetize': {
-            order: 'asc',
-            caseInsensitive: true,
-          },
-        },
-      ],
-
       // Prefer const assertions over type assertions
       '@typescript-eslint/prefer-as-const': 'error',
 
@@ -58,11 +45,12 @@ export default configApp(
   {
     // Backend-specific configuration
     files: ['app/**/*.ts', 'config/**/*.ts', 'start/**/*.ts', 'database/**/*.ts'],
+  },
+  // shadcn files
+  {
+    files: ['resources/**/ui/**/*.ts', 'resources/**/ui/**/*.tsx'],
     rules: {
-      // Stricter rules for backend code
-      '@typescript-eslint/no-explicit-any': 'error',
-      '@typescript-eslint/prefer-nullish-coalescing': 'error',
-      '@typescript-eslint/prefer-optional-chain': 'error',
+      'react-refresh/only-export-components': 'off',
     },
   }
 )

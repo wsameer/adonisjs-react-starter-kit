@@ -25,4 +25,4 @@ export default defineConfig({
       '@': `${getDirname(import.meta.url)}/resources/js/`,
     },
   },
-});
+})
