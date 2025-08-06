@@ -1,4 +1,5 @@
-import React from 'react'
+import { type SharedProps } from '@adonisjs/inertia/types';
+import { usePage } from '@inertiajs/react';
 import { z } from 'zod';
 
 type LoginFormProps = {
@@ -14,5 +15,9 @@ const loginFormSchema = z.object({
 export type UserLoginParameters = z.infer<typeof loginFormSchema>;
 
 export const LoginForm = ({ onSuccess }: LoginFormProps) => {
+
+   const { props:{auth} } = usePage<SharedProps>();
+   console.log('🚀 ~ useAuth ~ auth:', auth);
+  
   return <div>LoginForm</div>;
 };
