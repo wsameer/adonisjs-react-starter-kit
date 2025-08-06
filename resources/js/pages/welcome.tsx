@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'
 import { Head, Link } from '@inertiajs/react'
 
 export default function Welcome() {
@@ -15,10 +15,10 @@ export default function Welcome() {
         <header className="mb-6 w-full max-w-[335px] text-sm not-has-[nav]:hidden lg:max-w-4xl">
           <nav className="flex items-center justify-end gap-4">
             <Button variant="ghost" asChild>
-              <Link href="#">Log in</Link>
+              <Link href="/login">Log in</Link>
             </Button>
             <Button variant="default" asChild>
-              <Link href="#">Register</Link>
+              <Link href="/register">Register</Link>
             </Button>
           </nav>
         </header>
@@ -62,5 +62,5 @@ export default function Welcome() {
         <div className="hidden h-14.5 lg:block"></div>
       </div>
     </>
-  );
+  )
 }
