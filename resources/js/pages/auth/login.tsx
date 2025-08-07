@@ -1,19 +1,139 @@
-import { AuthLayout } from "@/components/layout/auth-layout";
-import { Button } from "@/components/ui/button";
-import { LoginForm } from "@/features/auth/login-form";
-import { Github, ScanFaceIcon } from "lucide-react";
+import { DASHBOARD_ROUTE } from '@/app/routes'
+import { InputError } from '@/components/common/input-error'
+import { AuthLayout } from '@/components/layout/auth-layout'
+import TextLink from '@/components/common/text-link'
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { LOGIN_API } from '@/lib/constants'
+import { type AuthData } from '@/types/types'
+import { type SharedProps } from '@adonisjs/inertia/types'
+import { Head, router, useForm, usePage } from '@inertiajs/react'
+import { EyeIcon, EyeOffIcon, Github, LoaderCircle, ScanFaceIcon } from 'lucide-react'
+import { useState } from 'react'
 
-const Login = () => {
+type LoginForm = {
+  email: string
+  password: string
+  remember: boolean
+}
+
+interface LoginProps {
+  status?: string
+  canResetPassword: boolean
+}
+
+const Login = ({ status, canResetPassword }: LoginProps) => {
+  const { props } = usePage<SharedProps>()
+
+  const [showPassword, setShowPassword] = useState(false)
+  const { data, setData, post, processing, errors } = useForm<Required<LoginForm>>({
+    email: '',
+    password: '',
+    remember: false,
+  })
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    // Direct Inertia form submission - cleanest approach
+    post(LOGIN_API, {
+      onError: (errors) => {
+        console.log('🚀 ~ handleSubmit ~ errors:', errors)
+        // Your SessionController will handle flash messages
+        console.log('Login failed')
+      },
+    })
+  }
+
+  if ((props.auth as AuthData).isAuthenticated) {
+    return router.push({ url: DASHBOARD_ROUTE })
+  }
+
   return (
-    <AuthLayout title="Login">
-      <div>
-        <h1 className="text-4xl font-light text-zinc-900 dark:text-white">Welcome back</h1>
-        <p className="mt-2 text-lg font-light text-zinc-400">Log in to your account</p>
-      </div>
+    <AuthLayout title="Welcome back" description="Log in to your account">
+      <Head title="Log in" />
 
-      <LoginForm
-        onSuccess={() => console.log("login is a success")}
-      />
+      <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+        <div className="grid gap-6">
+          <div className="grid gap-2">
+            <Label htmlFor="email">Email address</Label>
+            <Input
+              id="email"
+              type="email"
+              required
+              autoFocus
+              tabIndex={1}
+              autoComplete="email"
+              value={data.email}
+              onChange={(e) => setData('email', e.target.value)}
+              placeholder="name@example.com"
+            />
+            <InputError message={errors.email} />
+          </div>
+        </div>
+
+        <div className="grid gap-2">
+          <div className="flex items-center">
+            <Label htmlFor="password">Password</Label>
+          </div>
+          <div className="relative">
+            <Input
+              id="password"
+              type={showPassword ? 'text' : 'password'}
+              required
+              tabIndex={2}
+              autoComplete="current-password"
+              value={data.password}
+              onChange={(e) => setData('password', e.target.value)}
+              placeholder="Password"
+            />
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              disabled={!data.password}
+              className="absolute top-0 right-0 h-full px-3 py-2 hover:cursor-pointer hover:bg-transparent"
+              onClick={() => setShowPassword(!showPassword)}
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
+            >
+              {showPassword ? <EyeOffIcon className="h-4 w-4" /> : <EyeIcon className="h-4 w-4" />}
+            </Button>
+          </div>
+          <InputError message={errors.password} />
+        </div>
+
+        <div className="flex items-center justify-between space-x-3">
+          <div className="flex flex-row items-center space-y-0 space-x-2">
+            <Checkbox
+              id="remember"
+              name="remember"
+              checked={data.remember}
+              onClick={() => setData('remember', !data.remember)}
+              tabIndex={3}
+            />
+            <Label className="text-sm font-normal" htmlFor="remember">
+              Remember me
+            </Label>
+          </div>
+          {canResetPassword && (
+            <TextLink href={'password.request'} className="ml-auto text-sm" tabIndex={5}>
+              Forgot password?
+            </TextLink>
+          )}
+        </div>
+
+        <Button
+          type="submit"
+          className="mt-4 h-12 w-full rounded-full text-base"
+          tabIndex={4}
+          disabled={processing}
+        >
+          {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+          Log in
+        </Button>
+      </form>
 
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
@@ -38,13 +158,17 @@ const Login = () => {
       <div className="text-center">
         <p className="text-sm text-foreground/80">
           <span>Don't have an account?</span>
-          <Button variant="link" size="sm">
+          <TextLink className="ml-1" href={'/register'}>
             Sign up
-          </Button>
+          </TextLink>
         </p>
       </div>
+
+      {status && (
+        <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>
+      )}
     </AuthLayout>
-  );
+  )
 }
 
 export default Login
