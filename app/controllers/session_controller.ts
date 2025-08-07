@@ -4,7 +4,17 @@ import { HttpContext } from '@adonisjs/core/http'
 
 export default class SessionController {
   /**
-   * Handle form submission for login
+   * Show the login page.
+   */
+  async create({ inertia, auth }: HttpContext) {
+    return inertia.render('auth/login', {
+      canResetPassword: false,
+      status: auth.isAuthenticated,
+    })
+  }
+
+  /**
+   * Handle an incoming authentication request.
    */
   async store({ request, auth, response, session }: HttpContext) {
     try {
@@ -14,7 +24,13 @@ export default class SessionController {
       const user = await User.verifyCredentials(email, password)
 
       // Login user
-      await auth.use('web').login(user)
+      await auth.use('web').login(
+        user,
+        /**
+         * Generate token when "remember_me" input exists
+         */
+        !!request.input('remember_me')
+      )
 
       // Flash success message
       session.flash('success', 'Welcome back!')
@@ -31,7 +47,7 @@ export default class SessionController {
     } catch (error) {
       if (error instanceof errors.E_INVALID_CREDENTIALS) {
         // Flash error for Inertia
-        session.flash('error', 'Invalid email or password')
+        session.flash('error', 'These credentials do not match our records.')
 
         // Return appropriate response based on request type
         if (request.header('X-Inertia')) {
@@ -40,7 +56,7 @@ export default class SessionController {
 
         return response.badRequest({
           status: 'error',
-          message: 'Invalid email or password',
+          message: 'These credentials do not match our records.',
         })
       }
 
@@ -52,11 +68,11 @@ export default class SessionController {
   }
 
   /**
-   * Logout user by deleting the session
+   * Logout user by deleting the authenticated session
    */
   async destroy({ auth, response, session }: HttpContext) {
     await auth.use('web').logout()
     session.flash('success', 'You have been logged out')
-    return response.redirect('/login')
+    return response.redirect('/')
   }
 }

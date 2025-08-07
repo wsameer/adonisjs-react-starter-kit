@@ -3,23 +3,33 @@ import { createUserValidator } from '#validators/user'
 import type { HttpContext } from '@adonisjs/core/http'
 import { errors } from '@vinejs/vine'
 
-export default class RegistersController {
+export default class RegisteredUsersController {
   /**
-   * Handle form submission for the create action
+   * Show the registration page.
    */
-  async store({ request, response }: HttpContext) {
+  async create({ inertia }: HttpContext) {
+    return inertia.render('auth/register')
+  }
+
+  /**
+   * Handle an incoming registration request.
+   */
+  async store({ request, auth, response }: HttpContext) {
     try {
       // Validate request data
       const data = await request.validateUsing(createUserValidator)
 
       // Create user with validated data
-      await User.create({
+      const user = await User.create({
         name: data.name,
         email: data.email,
         password: data.password, // no need to hash as it's already done in User model
       })
 
-      return response.ok({ success: true })
+      // Login user
+      await auth.use('web').login(user, !!request.input('remember_me'))
+
+      return response.redirect().toRoute('dashboard')
     } catch (error) {
       if (error instanceof errors.E_VALIDATION_ERROR) {
         return response.badRequest({
