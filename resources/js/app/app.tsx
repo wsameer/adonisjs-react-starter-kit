@@ -1,21 +1,20 @@
 /// <reference path="../../../adonisrc.ts" />
 /// <reference path="../../../config/inertia.ts" />
 
-import { StrictMode } from 'react';
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'
 import { resolvePageComponent } from '@adonisjs/inertia/helpers'
-import { ClickToComponent } from "click-to-react-component";
-import { AppWrapper } from '@/app/app-wrapper';
-
+import { ClickToComponent } from 'click-to-react-component'
+import { AppWrapper } from '@/app/app-wrapper'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Starter Kit'
 
 createInertiaApp({
-  title: title => `${title} - ${appName}`,
+  title: (title) => `${title} - ${appName}`,
 
-  resolve: name => {
-    return resolvePageComponent(`../pages/${name}.tsx`, import.meta.glob('../pages/**/*.tsx'));
+  resolve: (name) => {
+    return resolvePageComponent(`../pages/${name}.tsx`, import.meta.glob('../pages/**/*.tsx'))
   },
 
   setup({ el, App, props }) {
@@ -25,9 +24,9 @@ createInertiaApp({
           <App {...props} />
           <ClickToComponent />
         </AppWrapper>
-      </StrictMode>,
-    );
+      </StrictMode>
+    )
   },
 
   progress: { color: '#5468FF' },
-});
+})

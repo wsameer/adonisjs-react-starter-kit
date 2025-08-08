@@ -5,9 +5,7 @@
     "outDir": "./build",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./resources/js/*"
-      ]
+      "@/*": ["./resources/js/*"]
     }
   },
   "exclude": ["./resources/**/*", "node_modules", "docs", "build"]

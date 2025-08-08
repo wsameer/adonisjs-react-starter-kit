@@ -1,10 +1,10 @@
-import React from 'react';
-import { AppProvider } from '@/app/provider';
+import React from 'react'
+import { AppProvider } from '@/app/provider'
 
 interface AppWrapperProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export const AppWrapper: React.FC<AppWrapperProps> = ({ children }) => {
-  return <AppProvider>{children}</AppProvider>;
-};
+  return <AppProvider>{children}</AppProvider>
+}

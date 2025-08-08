@@ -1,5 +1,3 @@
 export const PageLayout = () => {
-  return (
-    <div>PageLayout</div>
-  )
+  return <div>PageLayout</div>
 }

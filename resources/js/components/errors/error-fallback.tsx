@@ -1,4 +1,4 @@
-import { Button } from '../ui/button';
+import { Button } from '../ui/button'
 
 export const ErrorFallback = ({ error, resetErrorBoundary }: any) => {
   return (
@@ -14,5 +14,5 @@ export const ErrorFallback = ({ error, resetErrorBoundary }: any) => {
         Try again
       </Button>
     </div>
-  );
-};
+  )
+}
