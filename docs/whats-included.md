@@ -16,7 +16,7 @@
 - Responsive UI components
 - Development tooling (ESLint, Prettier)
 - Testing setup
-- Internationalization with I18n
+- Internationalization with i18n
 
 ## Development Tools
 - Hot module replacement

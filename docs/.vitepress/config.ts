@@ -30,14 +30,14 @@ export default defineConfig({
           { text: 'Development Workflow', link: '/get-started/development-workflow' }
         ]
       },
-      // {
-      //   text: 'Guide',
-      //   items: [
-      //     { text: 'Configuration', link: '/guide/configuration' },
-      //     { text: 'Database Setup', link: '/guide/database' },
-      //     { text: 'Authentication', link: '/guide/authentication' }
-      //   ]
-      // },
+      {
+        text: 'Guide',
+        items: [
+          { text: 'Share Data', link: '/guide/share-data' },
+          // { text: 'Database Setup', link: '/guide/database' },
+          // { text: 'Authentication', link: '/guide/authentication' }
+        ]
+      },
       {
         text: 'Deployment',
         items: [
