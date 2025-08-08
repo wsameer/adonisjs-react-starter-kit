@@ -9,28 +9,7 @@ A modern, production-ready full-stack web application starter kit built with the
 Designed for developers who value both speed and quality, this template provides a complete foundation for full-stack applications. From solo projects to team collaborations, it scales with your ambitions while maintaining the developer experience you deserve.
   
 
-## Installation
-
-Choose one of the following methods to create your new project:
-  
-
-#### GitHub Template (Recommended) {#github-template}
-
-The easiest way to get started is by using the GitHub template feature:
-  
-
-1. Visit the [starter kit repository](https://github.com/wsameer/adonisjs-react-starter-kit)
-
-2. Click **"Use this template"** button
-
-3. Select "Create a new repository"
-
-4. Choose a name for your project
-
-5. Click "Create repository from template"
-
-
-  ## Quick Start
+## Quick Start
 ### 1. Create Your Project
 [Generate a new repository](https://github.com/wsameer/adonisjs-react-starter-kit/generate) from this template, then clone it locally:
 
