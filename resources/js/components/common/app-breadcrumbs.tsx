@@ -20,7 +20,7 @@ export function AppBreadcrumbs({ breadcrumbs }: { breadcrumbs: BreadcrumbItemTyp
               const isLast = index === breadcrumbs.length - 1
               return (
                 <Fragment key={item.id}>
-                  <BreadcrumbItem>
+                  <BreadcrumbItem className="hidden md:block">
                     {isLast ? (
                       <BreadcrumbPage>{item.title}</BreadcrumbPage>
                     ) : (
@@ -29,7 +29,7 @@ export function AppBreadcrumbs({ breadcrumbs }: { breadcrumbs: BreadcrumbItemTyp
                       </BreadcrumbLink>
                     )}
                   </BreadcrumbItem>
-                  {!isLast && <BreadcrumbSeparator />}
+                  {!isLast && <BreadcrumbSeparator className="hidden md:block" />}
                 </Fragment>
               )
             })}

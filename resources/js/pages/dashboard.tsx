@@ -3,8 +3,9 @@ import { type BreadcrumbItem } from '@/types'
 import { Head } from '@inertiajs/react'
 
 const breadcrumbs: BreadcrumbItem[] = [
+  { id: 1, title: 'Building Your Application', href: '#' },
   {
-    id: 1,
+    id: 2,
     title: 'Dashboard',
     href: '/dashboard',
   },

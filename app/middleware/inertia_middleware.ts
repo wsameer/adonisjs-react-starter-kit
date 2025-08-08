@@ -8,9 +8,10 @@ export default class InertiaMiddleware {
      */
     inertia.share({
       auth: {
-        user: auth.user ?? null,
         isAuthenticated: auth.isAuthenticated,
       },
+
+      user: (ctx: HttpContext) => ctx.auth?.user,
 
       // You can share other global data here too
       flash: (ctx: HttpContext) => ({

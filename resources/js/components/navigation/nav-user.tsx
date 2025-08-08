@@ -15,9 +15,9 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar'
+import { useMobileNavigation } from '@/hooks/use-mobile-navigations'
 import { type PageData } from '@/types'
 import { Link, router, usePage } from '@inertiajs/react'
-import { useMobileNavigation } from '@/hooks/use-mobile-navigations'
 
 const getInitials = (fullName: string): string => {
   const names = fullName.trim().split(' ')
@@ -32,9 +32,9 @@ const getInitials = (fullName: string): string => {
 }
 
 export function NavUser() {
-  const {
-    auth: { user },
-  } = usePage<PageData>().props
+  const props = usePage<PageData>()
+  console.log('🚀 ~ NavUser ~ props:', props)
+
   const { state } = useSidebar()
   const { isMobile } = useSidebar()
 
@@ -43,6 +43,7 @@ export function NavUser() {
     cleanup()
     router.flushAll()
   }
+  return <div>hello word</div>
 
   return (
     <SidebarMenu>

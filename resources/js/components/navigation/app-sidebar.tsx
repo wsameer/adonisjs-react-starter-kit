@@ -1,4 +1,4 @@
-import { BookOpenIcon, CommandIcon, GithubIcon, Settings2Icon, SquareTerminal } from 'lucide-react'
+import { BookOpenIcon, GithubIcon, Settings2Icon, SquareTerminal } from 'lucide-react'
 import * as React from 'react'
 
 import {
@@ -11,12 +11,12 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from '@/components/ui/sidebar'
-import { NavMain } from './nav-main'
-import { NavUser } from './nav-user'
+import { type NavItem } from '@/types'
 import { Link } from '@inertiajs/react'
 import { AppLogo } from '../common/app-logo'
-import { type NavItem } from '@/types'
+import { NavMain } from './nav-main'
 import { NavSecondary } from './nav-secondary'
+import { NavUser } from './nav-user'
 
 // This is sample data.
 const mainNavItems: NavItem[] = [
@@ -75,7 +75,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavSecondary items={secondaryNavItems} className="mt-auto" />
       </SidebarContent>
 
-      <SidebarFooter>{/* <NavUser /> */}</SidebarFooter>
+      <SidebarFooter>
+        <NavUser />
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )

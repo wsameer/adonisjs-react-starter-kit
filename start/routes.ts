@@ -14,8 +14,6 @@ const RegisteredUsersController = () => import('#controllers/registered_users_co
 
 // Web routes
 router.on('/').renderInertia('welcome').as('home')
-
-// Web routes
 router.group(() => {
   router.get('/login', [SessionController, 'create']).as('login')
   router.get('/register', [RegisteredUsersController, 'create']).as('register')
