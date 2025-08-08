@@ -1,4 +1,4 @@
-import { WalletMinimal } from 'lucide-react'
+import { GalleryVerticalEnd } from 'lucide-react'
 
 interface AppLogoProps {
   size?: 'small' | 'large' | 'extra-large'
@@ -21,7 +21,9 @@ export const AppLogo: React.FC<AppLogoProps> = ({ size = 'small' }) => {
     <div
       className={`group flex ${sizeClasses[size]} shrink-0 items-center justify-center gap-2 rounded-full bg-primary font-semibold text-primary-foreground`}
     >
-      <WalletMinimal className={`${iconSizeClasses[size]} transition-all group-hover:scale-110`} />
+      <GalleryVerticalEnd
+        className={`${iconSizeClasses[size]} transition-all group-hover:scale-110`}
+      />
       <span className="sr-only">App Name</span>
     </div>
   )

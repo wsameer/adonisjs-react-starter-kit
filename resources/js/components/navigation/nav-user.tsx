@@ -1,6 +1,6 @@
-import { ChevronsUpDown, LogOut } from 'lucide-react';
+import { ChevronsUpDown, LogOut } from 'lucide-react'
 
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,39 +8,41 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from '@/components/ui/dropdown-menu'
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from '@/components/ui/sidebar';
-import { type PageData } from '@/types';
-import { Link, router, usePage } from '@inertiajs/react';
-import { useMobileNavigation } from '@/hooks/use-mobile-navigations';
+} from '@/components/ui/sidebar'
+import { type PageData } from '@/types'
+import { Link, router, usePage } from '@inertiajs/react'
+import { useMobileNavigation } from '@/hooks/use-mobile-navigations'
 
 const getInitials = (fullName: string): string => {
-  const names = fullName.trim().split(' ');
+  const names = fullName.trim().split(' ')
 
-  if (names.length === 0) return '';
-  if (names.length === 1) return names[0].charAt(0).toUpperCase();
+  if (names.length === 0) return ''
+  if (names.length === 1) return names[0].charAt(0).toUpperCase()
 
-  const firstInitial = names[0].charAt(0);
-  const lastInitial = names[names.length - 1].charAt(0);
+  const firstInitial = names[0].charAt(0)
+  const lastInitial = names[names.length - 1].charAt(0)
 
-  return `${firstInitial}${lastInitial}`.toUpperCase();
-};
+  return `${firstInitial}${lastInitial}`.toUpperCase()
+}
 
 export function NavUser() {
-  const { auth: {user} } = usePage<PageData>().props;
-  const { state } = useSidebar();
-  const { isMobile } = useSidebar();
+  const {
+    auth: { user },
+  } = usePage<PageData>().props
+  const { state } = useSidebar()
+  const { isMobile } = useSidebar()
 
-  const cleanup = useMobileNavigation();
-   const handleLogout = () => {
-     cleanup();
-     router.flushAll();
-   };
+  const cleanup = useMobileNavigation()
+  const handleLogout = () => {
+    cleanup()
+    router.flushAll()
+  }
 
   return (
     <SidebarMenu>
@@ -97,5 +99,5 @@ export function NavUser() {
         </DropdownMenu>
       </SidebarMenuItem>
     </SidebarMenu>
-  );
+  )
 }

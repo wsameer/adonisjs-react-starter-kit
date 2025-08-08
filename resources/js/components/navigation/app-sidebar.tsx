@@ -1,10 +1,5 @@
-import {
-  BookOpenIcon,
-  GithubIcon,
-  Settings2Icon,
-  SquareTerminal,
-} from 'lucide-react';
-import * as React from 'react';
+import { BookOpenIcon, CommandIcon, GithubIcon, Settings2Icon, SquareTerminal } from 'lucide-react'
+import * as React from 'react'
 
 import {
   Sidebar,
@@ -15,13 +10,13 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
-} from '@/components/ui/sidebar';
-import { NavMain } from './nav-main';
-import { NavUser } from './nav-user';
-import { Link } from '@inertiajs/react';
-import { AppLogo } from '../common/app-logo';
-import { type NavItem } from '@/types';
-import { NavSecondary } from './nav-secondary';
+} from '@/components/ui/sidebar'
+import { NavMain } from './nav-main'
+import { NavUser } from './nav-user'
+import { Link } from '@inertiajs/react'
+import { AppLogo } from '../common/app-logo'
+import { type NavItem } from '@/types'
+import { NavSecondary } from './nav-secondary'
 
 // This is sample data.
 const mainNavItems: NavItem[] = [
@@ -35,7 +30,7 @@ const mainNavItems: NavItem[] = [
     href: '/settings',
     icon: Settings2Icon,
   },
-];
+]
 
 const secondaryNavItems: NavItem[] = [
   {
@@ -48,7 +43,7 @@ const secondaryNavItems: NavItem[] = [
     href: 'https://wsameer.github.io/adonisjs-react-starter-kit/',
     icon: GithubIcon,
   },
-];
+]
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -56,10 +51,19 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
+            <SidebarMenuButton
+              size="lg"
+              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+              asChild
+            >
               <Link href="/dashboard" prefetch>
-                <AppLogo size="small" />
-                <h4 className="scroll-m-20 text-lg font-semibold tracking-tight">Your App Name</h4>
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                  <AppLogo size="small" />
+                </div>
+                <div className="grid flex-1 text-left text-sm leading-tight">
+                  <span className="truncate font-medium">Acme Inc</span>
+                  <span className="truncate text-xs">Enterprise</span>
+                </div>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -74,5 +78,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarFooter>{/* <NavUser /> */}</SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  );
+  )
 }

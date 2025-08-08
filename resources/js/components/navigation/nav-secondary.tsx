@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react'
 
 import {
   SidebarGroup,
@@ -6,21 +6,21 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from '@/components/ui/sidebar';
-import { type NavItem } from '@/types';
-import { Icon } from '../common/icon';
+} from '@/components/ui/sidebar'
+import { type NavItem } from '@/types'
+import { Icon } from '../common/icon'
 
 export const NavSecondary = ({
   items,
   ...props
 }: {
-  items: NavItem[];
+  items: NavItem[]
 } & React.ComponentPropsWithoutRef<typeof SidebarGroup>) => {
   return (
     <SidebarGroup {...props}>
       <SidebarGroupContent>
         <SidebarMenu>
-          {items.map(item => (
+          {items.map((item) => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild size="sm">
                 <a href={item.href} target="_blank" rel="noopener noreferrer">
@@ -33,5 +33,5 @@ export const NavSecondary = ({
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>
-  );
-};
+  )
+}
