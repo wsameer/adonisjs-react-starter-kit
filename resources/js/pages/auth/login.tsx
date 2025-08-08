@@ -7,7 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { LOGIN_API } from '@/lib/constants'
-import { type AuthData } from '@/types/types'
+import { type ValidationErrors, type AuthData } from '@/types/types'
 import { type SharedProps } from '@adonisjs/inertia/types'
 import { Head, router, useForm, usePage } from '@inertiajs/react'
 import { EyeIcon, EyeOffIcon, Github, LoaderCircle, ScanFaceIcon } from 'lucide-react'
@@ -25,10 +25,13 @@ interface LoginProps {
 }
 
 const Login = ({ status, canResetPassword }: LoginProps) => {
-  const { props } = usePage<SharedProps>()
+  const {
+    props: { auth, flash },
+  } = usePage<SharedProps>()
+  const { errors } = flash as { errors: ValidationErrors }
 
   const [showPassword, setShowPassword] = useState(false)
-  const { data, setData, post, processing, errors } = useForm<Required<LoginForm>>({
+  const { data, setData, post, reset, processing } = useForm<Required<LoginForm>>({
     email: '',
     password: '',
     remember: false,
@@ -39,15 +42,15 @@ const Login = ({ status, canResetPassword }: LoginProps) => {
 
     // Direct Inertia form submission - cleanest approach
     post(LOGIN_API, {
-      onError: (errors) => {
-        console.log('🚀 ~ handleSubmit ~ errors:', errors)
-        // Your SessionController will handle flash messages
-        console.log('Login failed')
+      onFinish: () => reset('password'),
+      onError: (_errors) => {
+        // show a toast or send error to Sentry or log it to Firebase.
+        // Whatever you prefer
       },
     })
   }
 
-  if ((props.auth as AuthData).isAuthenticated) {
+  if ((auth as AuthData).isAuthenticated) {
     return router.push({ url: DASHBOARD_ROUTE })
   }
 
@@ -70,7 +73,7 @@ const Login = ({ status, canResetPassword }: LoginProps) => {
               onChange={(e) => setData('email', e.target.value)}
               placeholder="name@example.com"
             />
-            <InputError message={errors.email} />
+            <InputError message={errors?.email} />
           </div>
         </div>
 
@@ -101,7 +104,7 @@ const Login = ({ status, canResetPassword }: LoginProps) => {
               {showPassword ? <EyeOffIcon className="h-4 w-4" /> : <EyeIcon className="h-4 w-4" />}
             </Button>
           </div>
-          <InputError message={errors.password} />
+          <InputError message={errors?.password} />
         </div>
 
         <div className="flex items-center justify-between space-x-3">

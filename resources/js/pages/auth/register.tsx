@@ -1,3 +1,4 @@
+import { DASHBOARD_ROUTE } from '@/app/routes'
 import { InputError } from '@/components/common/input-error'
 import TextLink from '@/components/common/text-link'
 import { AuthLayout } from '@/components/layout/auth-layout'
@@ -5,7 +6,9 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { REGISTRATION_API } from '@/lib/constants'
-import { Head, useForm } from '@inertiajs/react'
+import { type AuthData, type ValidationErrors } from '@/types/types'
+import { type SharedProps } from '@adonisjs/inertia/types'
+import { Head, router, useForm, usePage } from '@inertiajs/react'
 import { EyeIcon, EyeOffIcon, Github, LoaderCircle, ScanFaceIcon } from 'lucide-react'
 import { useState } from 'react'
 
@@ -18,22 +21,30 @@ type RegisterForm = {
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false)
+  const {
+    props: { auth, flash },
+  } = usePage<SharedProps>()
+  const { errors } = flash as { errors: ValidationErrors }
 
-  const { data, setData, post, processing, errors, reset } = useForm<Required<RegisterForm>>({
+  const { data, setData, post, processing, reset } = useForm<Required<RegisterForm>>({
     name: '',
     email: '',
     password: '',
     password_confirmation: '',
   })
 
+  if ((auth as AuthData).isAuthenticated) {
+    return router.push({ url: DASHBOARD_ROUTE })
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
     post(REGISTRATION_API, {
       onFinish: () => reset('password', 'password_confirmation'),
-      onError: (errors) => {
-        console.log('🚀 ~ handleSubmit ~ errors:', errors)
-        console.log('Registration failed')
+      onError: (_errors) => {
+        // show a toast or send error to Sentry or log it to Firebase.
+        // Whatever you prefer
       },
     })
   }
@@ -77,7 +88,7 @@ const Register = () => {
               disabled={processing}
               placeholder="name@example.com"
             />
-            <InputError message={errors.email} />
+            <InputError message={errors?.email} />
           </div>
 
           <div className="grid gap-2">
@@ -111,7 +122,7 @@ const Register = () => {
                 )}
               </Button>
             </div>
-            <InputError message={errors.password} />
+            <InputError message={errors?.password} />
           </div>
 
           <div className="grid gap-2">
@@ -127,7 +138,7 @@ const Register = () => {
               disabled={processing}
               placeholder="Confirm password"
             />
-            <InputError message={errors.password_confirmation} />
+            <InputError message={errors?.password_confirmation} />
           </div>
 
           <Button

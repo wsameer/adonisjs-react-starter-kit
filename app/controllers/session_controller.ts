@@ -24,46 +24,29 @@ export default class SessionController {
       const user = await User.verifyCredentials(email, password)
 
       // Login user
-      await auth.use('web').login(
-        user,
-        /**
-         * Generate token when "remember_me" input exists
-         */
-        !!request.input('remember_me')
-      )
+      await auth.use('web').login(user, !!request.input('remember'))
 
       // Flash success message
       session.flash('success', 'Welcome back!')
 
-      // For API calls, return JSON
-      if (request.header('X-Inertia')) {
-        return response.redirect('/dashboard')
-      }
-
-      return response.ok({
-        success: true,
-        redirect: '/dashboard',
-      })
+      return response.redirect('/dashboard')
     } catch (error) {
+      // Handle validation errors (automatically handled by Inertia)
       if (error instanceof errors.E_INVALID_CREDENTIALS) {
         // Flash error for Inertia
-        session.flash('error', 'These credentials do not match our records.')
-
-        // Return appropriate response based on request type
-        if (request.header('X-Inertia')) {
-          return response.redirect().back()
-        }
-
-        return response.badRequest({
-          status: 'error',
-          message: 'These credentials do not match our records.',
+        session.flash('errors', {
+          email: 'These credentials do not match our records.',
         })
+
+        return response.redirect().back()
       }
 
-      return response.internalServerError({
-        status: 'error',
-        message: 'Something went wrong',
+      // Flash error for Inertia
+      session.flash('errors', {
+        email: 'These credentials do not match our records.',
       })
+
+      response.redirect().back()
     }
   }
 

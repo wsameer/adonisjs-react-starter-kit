@@ -15,7 +15,7 @@ export default class InertiaMiddleware {
       // You can share other global data here too
       flash: (ctx: HttpContext) => ({
         success: ctx.session.flashMessages.get('success'),
-        error: ctx.session.flashMessages.get('error'),
+        errors: ctx.session.flashMessages.get('errors'),
       }),
     })
 
