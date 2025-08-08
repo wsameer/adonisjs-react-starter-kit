@@ -1,7 +1,7 @@
 import { Link } from '@inertiajs/react'
 import { type PropsWithChildren } from 'react'
-import { BrandLogo } from '../common/brand-logo'
 import { DASHBOARD_ROUTE } from '@/app/routes'
+import { AppLogo } from '../common/app-logo'
 
 interface AuthLayoutProps {
   name?: string
@@ -21,7 +21,7 @@ export const AuthLayout = ({
           <div className="items-left flex flex-col gap-4">
             <Link href={DASHBOARD_ROUTE} className="mb-6 flex flex-col gap-2 font-medium">
               <header className="flex items-center justify-between">
-                <BrandLogo size="large" />
+                <AppLogo size="large" />
               </header>
               <span className="sr-only">{title}</span>
             </Link>

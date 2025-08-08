@@ -1,24 +1,16 @@
-import { PageLayout } from '@/components/layout/page-layout';
-import { type BreadcrumbItem } from '@/types';
-import { type SharedProps } from '@adonisjs/inertia/types';
-import { Head, Link, router, usePage } from '@inertiajs/react'
-import { LogOutIcon } from 'lucide-react'
+import { PageLayout } from '@/components/layout/page-layout'
+import { type BreadcrumbItem } from '@/types'
+import { Head } from '@inertiajs/react'
 
 const breadcrumbs: BreadcrumbItem[] = [
   {
+    id: 1,
     title: 'Dashboard',
     href: '/dashboard',
   },
-];
+]
 
 const Dashboard = () => {
-
-  const page = usePage<SharedProps>();
-
-  const handleLogout = () => {
-    router.flushAll()
-  }
-
   return (
     <PageLayout breadcrumbs={breadcrumbs}>
       <Head title="Dashboard" />
@@ -31,22 +23,6 @@ const Dashboard = () => {
         <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
       </div>
     </PageLayout>
-  );
-
-  return (
-    <div>
-      <h1>Dashboard</h1>
-      <Link
-        className="block w-full"
-        method="post"
-        href={'/logout'}
-        as="button"
-        onClick={handleLogout}
-      >
-        <LogOutIcon className="mr-2" />
-        Log out
-      </Link>
-    </div>
   )
 }
 
