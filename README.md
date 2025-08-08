@@ -1,38 +1,133 @@
-# AdonisJS + React Full-Stack Starter Kit
+# AdonisJS + React Full-Stack Starter Kit  
 
 ## Introduction
 
+
 A modern, production-ready full-stack web application starter kit built with the latest technologies for those who want to ship fast and ship great.
 
+
 Designed for developers who value both speed and quality, this template provides a complete foundation for full-stack applications. From solo projects to team collaborations, it scales with your ambitions while maintaining the developer experience you deserve.
+  
+
+## Installation
+
+Choose one of the following methods to create your new project:
+  
+
+#### GitHub Template (Recommended) {#github-template}
+
+The easiest way to get started is by using the GitHub template feature:
+  
+
+1. Visit the [starter kit repository](https://github.com/wsameer/adonisjs-react-starter-kit)
+
+2. Click **"Use this template"** button
+
+3. Select "Create a new repository"
+
+4. Choose a name for your project
+
+5. Click "Create repository from template"
+
+
+  ## Quick Start
+### 1. Create Your Project
+[Generate a new repository](https://github.com/wsameer/adonisjs-react-starter-kit/generate) from this template, then clone it locally:
+
+```bash
+git  clone  https://github.com/YOUR_USERNAME/YOUR_PROJECT_NAME.git
+
+cd  YOUR_PROJECT_NAME
+```
+  
+### 2. Install Dependencies
+
+```bash
+pnpm  install | yarn install | npm install
+```
+
+### 3. Environment Setup
+1. Create Environment File
+
+```bash
+cp  .env.example  .env
+```
+
+
+2. Generate Application Key
+
+```bash
+node  ace  generate:key
+```
+  
+
+### 4. Database Setup
+
+1. Run Migrations
+
+```bash
+ace  migration:run
+```
+### 5. Start Development
+Open a terminal and run the following command:
+
+```bash
+pn dev
+```
+
+Visit [localhost:3333](http://localhost:3333) and both your frontend and backend will be running together. 
+  
 
 ## Technology Stack
 
+
+
 **Frontend & UI**
 
+
 - [React 19](https://react.dev/) - Latest React with concurrent features
+
 - [TypeScript](https://www.typescriptlang.org/) - Static type checking
+
 - [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first CSS framework
+
 - [ShadCN UI](https://ui.shadcn.com/) - Beautiful, accessible components
+
 - [Vite](https://vite.dev/) - Fast build tool and dev server
+
 - [Inertia.js](https://inertiajs.com/) - Modern monolithic approach
+
+  
 
 **Backend & API**
 
+
 - [AdonisJS](https://docs.adonisjs.com/guides/preface/introduction) - Node.js framework with TypeScript-first approach
-- [tRPC](https://trpc.io/) - End-to-end type safety for APIs
+
 - [PostgreSQL](https://www.postgresql.org/) - Robust relational database
+
 - [Session-based Authentication](https://docs.adonisjs.com/guides/authentication/session-guard) - Secure user authentication
+
+  
 
 **Development Tools**
 
+
 - [pnpm](https://pnpm.io/) - Fast, disk space efficient package manager
+
 - Monorepo - Single repository for frontend and backend
+
 - [TypeScript](https://www.typescriptlang.org/) - Full type safety across the stack
+
 - [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/) - Code quality and formatting
+
+  
 
 ## Prerequisites
 
+
 - Node.js 18+
+
 - PostgreSQL 12+
+
 - pnpm 8+ (can be swapped with npm or yarn)
