@@ -1,10 +1,10 @@
 import { WalletMinimal } from 'lucide-react'
 
-interface BrandLogoProps {
+interface AppLogoProps {
   size?: 'small' | 'large' | 'extra-large'
 }
 
-export const BrandLogo: React.FC<BrandLogoProps> = ({ size = 'small' }) => {
+export const AppLogo: React.FC<AppLogoProps> = ({ size = 'small' }) => {
   const sizeClasses = {
     'small': 'h-8 w-8 text-base',
     'large': 'h-12 w-12 text-lg',
