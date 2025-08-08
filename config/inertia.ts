@@ -26,5 +26,19 @@ const inertiaConfig = defineConfig({
 export default inertiaConfig
 
 declare module '@adonisjs/inertia/types' {
-  export interface SharedProps extends InferSharedProps<typeof inertiaConfig> {}
+  export interface SharedProps extends InferSharedProps<typeof inertiaConfig> {
+    auth: {
+      isAuthenticated: boolean
+    }
+    user: {
+      id: number
+      name: string | null
+      email: string
+    } | null
+    flash: {
+      success?: string
+      errors?: Record<string, string>
+    }
+    [key: string]: any
+  }
 }

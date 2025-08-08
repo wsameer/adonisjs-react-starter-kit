@@ -6,8 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { REGISTRATION_API } from '@/lib/constants'
-import { type AuthData, type ValidationErrors } from '@/types/types'
-import { type SharedProps } from '@adonisjs/inertia/types'
+import { type SharedProps, type ValidationErrors } from '@/types'
 import { Head, router, useForm, usePage } from '@inertiajs/react'
 import { EyeIcon, EyeOffIcon, Github, LoaderCircle, ScanFaceIcon } from 'lucide-react'
 import { useState } from 'react'
@@ -33,7 +32,7 @@ const Register = () => {
     password_confirmation: '',
   })
 
-  if ((auth as AuthData).isAuthenticated) {
+  if (auth.isAuthenticated) {
     return router.push({ url: DASHBOARD_ROUTE })
   }
 
@@ -72,7 +71,7 @@ const Register = () => {
               disabled={processing}
               placeholder="Full name"
             />
-            <InputError message={errors.name} className="mt-2" />
+            <InputError message={errors?.name} className="mt-2" />
           </div>
 
           <div className="grid gap-2">

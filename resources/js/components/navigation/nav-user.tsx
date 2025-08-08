@@ -16,7 +16,7 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 import { useMobileNavigation } from '@/hooks/use-mobile-navigations'
-import { type PageData } from '@/types'
+import { type SharedProps } from '@/types'
 import { Link, router, usePage } from '@inertiajs/react'
 
 const getInitials = (fullName: string): string => {
@@ -31,9 +31,9 @@ const getInitials = (fullName: string): string => {
   return `${firstInitial}${lastInitial}`.toUpperCase()
 }
 
-export function NavUser() {
-  const props = usePage<PageData>()
-  console.log('🚀 ~ NavUser ~ props:', props)
+export const NavUser = () => {
+  const { props } = usePage<SharedProps>()
+  const { auth, user } = props
 
   const { state } = useSidebar()
   const { isMobile } = useSidebar()
@@ -43,7 +43,10 @@ export function NavUser() {
     cleanup()
     router.flushAll()
   }
-  return <div>hello word</div>
+
+  if (!auth || !user) {
+    return null
+  }
 
   return (
     <SidebarMenu>
@@ -56,7 +59,9 @@ export function NavUser() {
             >
               <Avatar className="h-8 w-8 rounded-lg">
                 {/* <AvatarImage src={auth.user.avatar} alt={user.name} /> */}
-                <AvatarFallback className="rounded-lg">{getInitials(user.name)}</AvatarFallback>
+                <AvatarFallback className="rounded-lg">
+                  {getInitials(user?.name ?? '')}
+                </AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>

@@ -30,7 +30,7 @@ router
   .as('auth-routes')
   .prefix('api/auth')
 
-router.on('dashboard').renderInertia('dashboard').use(middleware.auth()).as('dashboard')
+router.on('/dashboard').renderInertia('dashboard').use(middleware.auth()).as('dashboard')
 
 router
   .group(() => {

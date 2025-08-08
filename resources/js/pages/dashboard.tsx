@@ -1,6 +1,8 @@
+import { LOGIN_ROUTE } from '@/app/routes'
 import { PageLayout } from '@/components/layout/page-layout'
 import { type BreadcrumbItem } from '@/types'
-import { Head } from '@inertiajs/react'
+import { type PageProps } from '@adonisjs/inertia/types'
+import { Head, router } from '@inertiajs/react'
 
 const breadcrumbs: BreadcrumbItem[] = [
   { id: 1, title: 'Building Your Application', href: '#' },
@@ -11,7 +13,11 @@ const breadcrumbs: BreadcrumbItem[] = [
   },
 ]
 
-const Dashboard = () => {
+const Dashboard = ({ auth }: PageProps) => {
+  if (!auth) {
+    router.push({ url: LOGIN_ROUTE })
+  }
+
   return (
     <PageLayout breadcrumbs={breadcrumbs}>
       <Head title="Dashboard" />

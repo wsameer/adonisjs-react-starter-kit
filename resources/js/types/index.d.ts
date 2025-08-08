@@ -1,25 +1,7 @@
-export interface User {
-  id: number
-  name: string
-  email: string
-}
-
-export interface AuthData {
-  user: User
-  isAuthenticated: boolean
-}
+export type { AuthData, User } from '../../../shared/types'
+export type { PageProps, SharedProps } from './inertia'
 
 export type ValidationErrors = Record<string, string>
-
-export interface PageData {
-  name: string
-  auth: AuthData
-  flash: {
-    errors: ValidationErrors
-  }
-  sidebarOpen: boolean
-  [key: string]: unknown // This allows for additional properties...
-}
 
 export interface BreadcrumbItem {
   id: number

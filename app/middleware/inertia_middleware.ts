@@ -11,7 +11,14 @@ export default class InertiaMiddleware {
         isAuthenticated: auth.isAuthenticated,
       },
 
-      user: (ctx: HttpContext) => ctx.auth?.user,
+      user: (ctx: HttpContext) =>
+        ctx.auth?.user
+          ? {
+              id: ctx.auth.user.id,
+              name: ctx.auth.user.name,
+              email: ctx.auth.user.email,
+            }
+          : null,
 
       // You can share other global data here too
       flash: (ctx: HttpContext) => ({
@@ -19,6 +26,8 @@ export default class InertiaMiddleware {
         errors: ctx.session.flashMessages.get('errors'),
       }),
     })
+
+    sidebarOpen: true
 
     /**
      * Call next method in the pipeline and return its output

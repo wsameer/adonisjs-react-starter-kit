@@ -1,15 +1,15 @@
 import { DASHBOARD_ROUTE } from '@/app/routes'
 import { InputError } from '@/components/common/input-error'
-import { AuthLayout } from '@/components/layout/auth-layout'
 import TextLink from '@/components/common/text-link'
+import { AuthLayout } from '@/components/layout/auth-layout'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { LOGIN_API } from '@/lib/constants'
-import { type ValidationErrors, type AuthData } from '@/types/types'
-import { type SharedProps } from '@adonisjs/inertia/types'
-import { Head, router, useForm, usePage } from '@inertiajs/react'
+import { type ValidationErrors } from '@/types'
+import { type PageProps } from '@/types/inertia'
+import { Head, router, useForm } from '@inertiajs/react'
 import { EyeIcon, EyeOffIcon, Github, LoaderCircle, ScanFaceIcon } from 'lucide-react'
 import { useState } from 'react'
 
@@ -19,15 +19,12 @@ type LoginForm = {
   remember: boolean
 }
 
-interface LoginProps {
+interface LoginProps extends PageProps {
   status?: string
   canResetPassword: boolean
 }
 
-const Login = ({ status, canResetPassword }: LoginProps) => {
-  const {
-    props: { auth, flash },
-  } = usePage<SharedProps>()
+const Login = ({ status, canResetPassword, auth, flash }: LoginProps) => {
   const { errors } = flash as { errors: ValidationErrors }
 
   const [showPassword, setShowPassword] = useState(false)
@@ -50,7 +47,7 @@ const Login = ({ status, canResetPassword }: LoginProps) => {
     })
   }
 
-  if ((auth as AuthData).isAuthenticated) {
+  if (auth.isAuthenticated) {
     return router.push({ url: DASHBOARD_ROUTE })
   }
 
