@@ -6,20 +6,20 @@ interface AppLogoProps {
 
 export const AppLogo: React.FC<AppLogoProps> = ({ size = 'small' }) => {
   const sizeClasses = {
-    'small': 'h-8 w-8 text-base',
-    'large': 'h-12 w-12 text-lg',
-    'extra-large': 'h-16 w-16 text-xl',
+    'small': 'size-6 text-base',
+    'large': 'size-8 text-lg',
+    'extra-large': 'size-12 text-xl',
   }
 
   const iconSizeClasses = {
-    'small': 'h-4 w-4',
-    'large': 'h-6 w-6',
-    'extra-large': 'h-8 w-8',
+    'small': 'size-4',
+    'large': 'size-6',
+    'extra-large': 'size-8',
   }
 
   return (
     <div
-      className={`group flex ${sizeClasses[size]} shrink-0 items-center justify-center gap-2 rounded-full bg-primary font-semibold text-primary-foreground`}
+      className={`group flex ${sizeClasses[size]} shrink-0 items-center justify-center gap-2 rounded-md bg-primary font-semibold text-primary-foreground`}
     >
       <GalleryVerticalEnd
         className={`${iconSizeClasses[size]} transition-all group-hover:scale-110`}
