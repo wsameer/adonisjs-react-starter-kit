@@ -131,7 +131,7 @@ const Login = ({ status, canResetPassword, auth, flash }: LoginProps) => {
 
             <Button
               type="submit"
-              className="mt-4 h-12 w-full rounded-full text-base"
+              className="mt-1 h-12 w-full rounded-full text-base"
               tabIndex={4}
               disabled={processing}
             >

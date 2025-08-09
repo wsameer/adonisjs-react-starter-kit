@@ -5,7 +5,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'
 import { resolvePageComponent } from '@adonisjs/inertia/helpers'
-import { ClickToComponent } from 'click-to-react-component'
 import { AppWrapper } from '@/app/app-wrapper'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Starter Kit'
@@ -22,7 +21,6 @@ createInertiaApp({
       <StrictMode>
         <AppWrapper>
           <App {...props} />
-          <ClickToComponent />
         </AppWrapper>
       </StrictMode>
     )

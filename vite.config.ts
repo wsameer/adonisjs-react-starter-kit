@@ -4,6 +4,7 @@ import inertia from '@adonisjs/inertia/client'
 import react from '@vitejs/plugin-react'
 import adonisjs from '@adonisjs/vite/client'
 import tailwindcss from '@tailwindcss/vite'
+import { codeInspectorPlugin } from 'code-inspector-plugin'
 
 export default defineConfig({
   plugins: [
@@ -14,6 +15,9 @@ export default defineConfig({
       reload: ['resources/views/**/*.edge'],
     }),
     tailwindcss(),
+    codeInspectorPlugin({
+      bundler: 'vite',
+    }),
   ],
 
   /**
