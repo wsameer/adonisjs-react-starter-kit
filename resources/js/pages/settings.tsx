@@ -1,7 +1,7 @@
 import { LOGIN_ROUTE } from '@/app/routes'
 import { PageLayout } from '@/components/layout/page-layout'
 import { type BreadcrumbItem, type PageProps } from '@/types'
-import { Head, router } from '@inertiajs/react'
+import { router } from '@inertiajs/react'
 
 const breadcrumbs: BreadcrumbItem[] = [
   { id: 1, title: 'Building Your Application', href: '#' },
@@ -18,8 +18,7 @@ export const Settings = ({ auth }: PageProps) => {
   }
 
   return (
-    <PageLayout breadcrumbs={breadcrumbs}>
-      <Head title="Settings" />
+    <PageLayout breadcrumbs={breadcrumbs} pageTitle="Settings">
       <div>Settings</div>
     </PageLayout>
   )
