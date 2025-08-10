@@ -6,6 +6,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
+import { cn } from '@/lib/utils'
 import { type BreadcrumbItem as BreadcrumbItemType } from '@/types'
 import { Link } from '@inertiajs/react'
 import { Fragment } from 'react'
@@ -20,7 +21,11 @@ export function AppBreadcrumbs({ breadcrumbs }: { breadcrumbs: BreadcrumbItemTyp
               const isLast = index === breadcrumbs.length - 1
               return (
                 <Fragment key={item.id}>
-                  <BreadcrumbItem className="hidden md:block">
+                  <BreadcrumbItem
+                    className={cn('block', {
+                      'hidden md:block': !isLast,
+                    })}
+                  >
                     {isLast ? (
                       <BreadcrumbPage>{item.title}</BreadcrumbPage>
                     ) : (

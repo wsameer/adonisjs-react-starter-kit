@@ -1,12 +1,5 @@
 import * as React from 'react'
-import {
-  BookOpenIcon,
-  GithubIcon,
-  LifeBuoy,
-  SendIcon,
-  Settings2Icon,
-  SquareTerminal,
-} from 'lucide-react'
+import { BookOpenIcon, GithubIcon, LifeBuoy, SendIcon, SquareTerminal } from 'lucide-react'
 
 import {
   Sidebar,
@@ -27,12 +20,6 @@ const mainNavItems: NavItem[] = [
     title: 'Dashboard',
     href: '/dashboard', // needs to match path.url for it to be active based on the page you are on
     icon: SquareTerminal,
-    type: 'internal',
-  },
-  {
-    title: 'Settings',
-    href: '/settings',
-    icon: Settings2Icon,
     type: 'internal',
   },
   {
