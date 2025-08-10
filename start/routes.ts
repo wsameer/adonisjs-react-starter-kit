@@ -19,6 +19,21 @@ router.group(() => {
   router.get('/register', [RegisteredUsersController, 'create']).as('register')
 })
 
+router
+  .group(() => {
+    router.on('/dashboard').renderInertia('dashboard').as('dashboard')
+  })
+  .use([middleware.auth()])
+
+router
+  .group(() => {
+    router.on('/settings').redirect('/settings/profile')
+    router.on('/settings/profile').renderInertia('settings/profile').as('settings.profile')
+    router.on('/settings/security').renderInertia('settings/security').as('settings.security')
+    router.on('/settings/appearance').renderInertia('settings/appearance').as('settings.appearance')
+  })
+  .use([middleware.auth()])
+
 // API routes
 // router.any('/api/*', [TrpcController, 'handle']).as('api')
 router
@@ -29,9 +44,6 @@ router
   .use([middleware.guest()])
   .as('auth-routes')
   .prefix('api/auth')
-
-router.on('/settings').renderInertia('settings').use(middleware.auth()).as('settings')
-router.on('/dashboard').renderInertia('dashboard').use(middleware.auth()).as('dashboard')
 
 router
   .group(() => {

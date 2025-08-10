@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Head, Link } from '@inertiajs/react'
 
-export default function Welcome() {
+export default function WelcomePage() {
   return (
     <>
       <Head title="Welcome">
@@ -9,6 +9,11 @@ export default function Welcome() {
           head-key="description"
           name="description"
           content="A modern, full-stack TypeScript starter kit that combines the power of AdonisJS backend with React frontend, seamlessly connected through Inertia.js"
+        />
+        <link rel="preconnect" href="https://fonts.bunny.net" />
+        <link
+          href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600"
+          rel="stylesheet"
         />
       </Head>
       <div className="flex min-h-screen flex-col items-center bg-[#FDFDFC] p-6 text-[#1b1b18] lg:justify-center lg:p-8">

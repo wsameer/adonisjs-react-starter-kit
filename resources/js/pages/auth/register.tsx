@@ -17,7 +17,7 @@ type RegisterForm = {
   password_confirmation: string
 }
 
-const Register = ({ auth, errors }: PageProps) => {
+const RegisterPage = ({ auth, errors }: PageProps) => {
   const [showPassword, setShowPassword] = useState(false)
 
   const { data, setData, post, processing, reset } = useForm<Required<RegisterForm>>({
@@ -178,12 +178,8 @@ const Register = ({ auth, errors }: PageProps) => {
           </div>
         </div>
       </form>
-
-      {status && (
-        <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>
-      )}
     </AuthLayout>
   )
 }
 
-export default Register
+export default RegisterPage

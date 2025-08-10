@@ -1,7 +1,13 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from 'react'
 
-type Theme = 'dark' | 'light' | 'system'
+export type Theme = (typeof Themes)[keyof typeof Themes]
+
+export const Themes = {
+  dark: 'dark',
+  light: 'light',
+  system: 'system',
+} as const
 
 type ThemeProviderProps = {
   children: React.ReactNode

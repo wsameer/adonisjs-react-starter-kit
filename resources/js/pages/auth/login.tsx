@@ -24,7 +24,7 @@ interface LoginProps extends PageProps {
   canResetPassword: boolean
 }
 
-const Login = ({ status, canResetPassword, auth, flash }: LoginProps) => {
+const LoginPage = ({ status, canResetPassword, auth, flash }: LoginProps) => {
   const { errors } = flash as { errors: ValidationErrors }
 
   const [showPassword, setShowPassword] = useState(false)
@@ -183,4 +183,4 @@ const Login = ({ status, canResetPassword, auth, flash }: LoginProps) => {
   )
 }
 
-export default Login
+export default LoginPage
