@@ -5,10 +5,10 @@ export default function Welcome() {
   return (
     <>
       <Head title="Welcome">
-        <link rel="preconnect" href="https://fonts.bunny.net" />
-        <link
-          href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600"
-          rel="stylesheet"
+        <meta
+          head-key="description"
+          name="description"
+          content="A modern, full-stack TypeScript starter kit that combines the power of AdonisJS backend with React frontend, seamlessly connected through Inertia.js"
         />
       </Head>
       <div className="flex min-h-screen flex-col items-center bg-[#FDFDFC] p-6 text-[#1b1b18] lg:justify-center lg:p-8">
@@ -17,7 +17,7 @@ export default function Welcome() {
             <Button variant="ghost" asChild>
               <Link href="/login">Log in</Link>
             </Button>
-            <Button variant="default" asChild>
+            <Button variant="secondary" asChild>
               <Link href="/register">Register</Link>
             </Button>
           </nav>
@@ -27,7 +27,7 @@ export default function Welcome() {
           <main className="mt-28 flex w-full max-w-[335px] flex-col-reverse lg:mt-4 lg:max-w-4xl lg:flex-row">
             <div className="flex-1 rounded-lg bg-white p-0 pb-12 text-[13px] leading-[20px] lg:p-20">
               <h2 className="text-base/7 font-semibold text-indigo-600">
-                AdonisJS + React Starter Kit
+                Adonis + React Starter Kit
               </h2>
               <p className="mt-2 text-4xl tracking-tight text-pretty sm:text-5xl lg:text-balance">
                 Everything you need to develop and deploy your full-stack web app

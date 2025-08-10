@@ -7,18 +7,15 @@ export function TeamSwitcher() {
   return (
     <SidebarMenu>
       <SidebarMenuItem>
-        <SidebarMenuButton
-          size="lg"
-          className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-          asChild
-        >
+        <SidebarMenuButton size="lg" asChild>
           <Link href="/dashboard" prefetch>
-            <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-              <GalleryVerticalEnd className="size-4" />
+            <div className="flex aspect-square size-8 items-center justify-center rounded-md bg-sidebar-primary text-sidebar-primary-foreground">
+              <GalleryVerticalEnd className="size-5 fill-current text-white dark:text-black" />
             </div>
-            <div className="grid flex-1 text-left text-sm leading-tight">
-              <span className="truncate font-medium">App Name</span>
-              <span className="truncate text-xs">Enterprise</span>
+            <div className="ml-1 grid flex-1 text-left text-sm">
+              <span className="mb-0.5 truncate leading-tight font-normal">
+                Adonis + React Starter Kit
+              </span>
             </div>
           </Link>
         </SidebarMenuButton>

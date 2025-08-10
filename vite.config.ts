@@ -8,7 +8,7 @@ import { codeInspectorPlugin } from 'code-inspector-plugin'
 
 export default defineConfig({
   plugins: [
-    inertia({ ssr: { enabled: false } }),
+    inertia({ ssr: { enabled: true, entrypoint: 'resources/js/app/ssr.tsx' } }),
     react(),
     adonisjs({
       entrypoints: ['resources/js/app/app.tsx', 'resources/css/app.css'],
