@@ -58,6 +58,9 @@ const SecurityPage = () => {
                   letters, numbers, and symbols.
                 </AlertDescription>
               </Alert>
+              <div>
+                <Button>Save</Button>
+              </div>
             </div>
           </div>
 
@@ -105,9 +108,10 @@ const SecurityPage = () => {
           {/* Active Sessions */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="space-y-1">
-              <Label className="text-sm font-medium">Active Sessions</Label>
+              <Label className="text-sm font-medium">Log out other sessions</Label>
               <p className="text-sm text-muted-foreground">
-                Manage your active sessions across devices.
+                Please enter your password to confirm you would like to log out of your other
+                sessions across all of your devices.
               </p>
             </div>
             <div className="space-y-3 md:col-span-2">
@@ -131,13 +135,27 @@ const SecurityPage = () => {
                   Revoke
                 </Button>
               </div>
-              <Button variant="destructive" size="sm" className="w-full">
+              <Button variant="destructive" size="sm" className="px-6 h-12 rounded-full">
                 Sign Out All Other Sessions
               </Button>
             </div>
           </div>
-          <div className="flex justify-end border-t pt-6">
-            <Button>Update Password</Button>
+
+          <Separator />
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div className="space-y-1">
+              <Label className="text-sm font-medium">Delete account</Label>
+              <p className="text-sm text-muted-foreground">
+                No longer want to use our service? You can delete your account here. This action is
+                not reversible. All information related to this account will be deleted permanently.
+              </p>
+            </div>
+            <div className="space-y-3 md:col-span-2">
+              <Button variant="destructive" size="sm" className="px-6 h-12 rounded-full">
+                Yes, delete my account
+              </Button>
+            </div>
           </div>
         </section>
       </SettingsLayout>
