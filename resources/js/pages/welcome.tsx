@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Head, Link } from '@inertiajs/react'
 
-export default function WelcomePage() {
+export default function Welcome() {
   return (
     <>
       <Head title="Welcome">
