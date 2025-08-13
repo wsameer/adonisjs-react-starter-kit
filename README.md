@@ -6,6 +6,11 @@ A modern, production-ready full-stack web application starter kit built with the
 
 Designed for developers who value both speed and quality, this template provides a complete foundation for full-stack applications. From solo projects to team collaborations, it scales with your ambitions while maintaining the developer experience you deserve.
 
+<img width="500" height="360" alt="login-1" src="https://github.com/user-attachments/assets/c344ffe2-0b93-47b3-82ae-85f07c8e28c0" />
+<img width="500" height="360" alt="register-1" src="https://github.com/user-attachments/assets/603f7ef2-73fd-4cee-905e-b416a2238142" />
+
+
+
 ## Quick Start
 
 ### 1. Create Your Project
