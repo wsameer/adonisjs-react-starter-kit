@@ -19,7 +19,7 @@ const ProfilePage = () => {
   return (
     <PageLayout breadcrumbs={breadcrumbs} pageTitle="Profile settings">
       <SettingsLayout>
-        <section className="space-y-8">
+        <section className="w-full space-y-8 lg:w-3/4">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="space-y-1">
               <Label className="text-lg font-medium">Profile</Label>

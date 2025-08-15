@@ -20,7 +20,7 @@ const SecurityPage = () => {
   return (
     <PageLayout breadcrumbs={breadcrumbs} pageTitle="Security settings">
       <SettingsLayout>
-        <section className="w-5/6 space-y-8">
+        <section className="w-full lg:w-3/4 space-y-8">
           {/* Change Password */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="space-y-1">
