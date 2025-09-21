@@ -1,4 +1,5 @@
 import { PageLayout } from '@/components/layout/page-layout'
+import { HealthCheck } from '@/components/common/health-check'
 import { type BreadcrumbItem } from '@/types'
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -15,7 +16,7 @@ export default function DashboardPage() {
     <PageLayout breadcrumbs={breadcrumbs} pageTitle="Dashboard">
       <div className="flex flex-1 flex-col gap-4 p-4">
         <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-          <div className="aspect-video rounded-xl bg-muted/50" />
+          <HealthCheck />
           <div className="aspect-video rounded-xl bg-muted/50" />
           <div className="aspect-video rounded-xl bg-muted/50" />
         </div>

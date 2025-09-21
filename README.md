@@ -9,8 +9,6 @@ Designed for developers who value both speed and quality, this template provides
 <img width="500" height="360" alt="login-1" src="https://github.com/user-attachments/assets/c344ffe2-0b93-47b3-82ae-85f07c8e28c0" />
 <img width="500" height="360" alt="register-1" src="https://github.com/user-attachments/assets/603f7ef2-73fd-4cee-905e-b416a2238142" />
 
-
-
 ## Quick Start
 
 ### 1. Create Your Project
@@ -34,13 +32,13 @@ pnpm  install | yarn install | npm install
 1. Create Environment File
 
 ```bash
-cp  .env.example  .env
+cp .env.example .env
 ```
 
 2. Generate Application Key
 
 ```bash
-node  ace  generate:key
+node ace generate:key
 ```
 
 ### 4. Database Setup
@@ -48,7 +46,7 @@ node  ace  generate:key
 1. Run Migrations
 
 ```bash
-ace  migration:run
+node ace migration:run
 ```
 
 ### 5. Start Development
@@ -56,7 +54,7 @@ ace  migration:run
 Open a terminal and run the following command:
 
 ```bash
-pn dev
+pnpm dev
 ```
 
 Visit [localhost:3333](http://localhost:3333) and both your frontend and backend will be running together.

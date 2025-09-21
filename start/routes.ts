@@ -8,6 +8,7 @@
 */
 
 const SessionController = () => import('#controllers/session_controller')
+const HealthController = () => import('#controllers/health_controller')
 import router from '@adonisjs/core/services/router'
 import { middleware } from './kernel.js'
 const RegisteredUsersController = () => import('#controllers/registered_users_controller')
@@ -36,6 +37,8 @@ router
 
 // API routes
 // router.any('/api/*', [TrpcController, 'handle']).as('api')
+router.get('/health', [HealthController, 'index']).prefix('api')
+
 router
   .group(() => {
     router.post('/login', [SessionController, 'store']).as('login')
