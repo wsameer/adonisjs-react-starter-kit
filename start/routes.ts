@@ -37,6 +37,7 @@ router
 
 // API routes
 // router.any('/api/*', [TrpcController, 'handle']).as('api')
+
 router.get('/health', [HealthController, 'index']).prefix('api')
 
 router
